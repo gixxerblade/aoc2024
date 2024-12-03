@@ -1,15 +1,21 @@
-import fs from 'node:fs';
-import { resolve } from 'node:path';
+import { file, type BunFile } from 'bun';
 
-const example1 = fs.readFileSync(resolve('example1.txt'), 'utf-8');
-const input = fs.readFileSync(resolve('input.txt'), 'utf-8');
+const example1 = file('example1.txt');
+const input = file('input.txt');
 
-const parseInput = (input: string) => {
+const parseInput = async (file: BunFile) => {
+  const input = await file.text();
   return input
     .split('\n')
     .filter((line) => line.trim() !== '')
 }
 
-const puzzle1 = (input: string) => { };
+const puzzle1 = async (file: BunFile) => {
+  const input = await parseInput(file);
+};
 
-const puzzle2 = (input: string) => { };
+puzzle1(example1);
+
+const puzzle2 =async (file: BunFile) => {
+  const input = parseInput(file)
+};
