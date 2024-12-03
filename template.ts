@@ -17,5 +17,5 @@ const puzzle1 = async (file: BunFile) => {
 puzzle1(example1);
 
 const puzzle2 =async (file: BunFile) => {
-  const input = parseInput(file)
+  const input = await parseInput(file)
 };
