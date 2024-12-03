@@ -31,11 +31,11 @@ puzzle1(input);
 const puzzle2 = async (file: BunFile) => {
   const input = await parseInput(file);
   const text = input.join('');
-  const masterRe = /don't\(\)|do\(\)|mul\(\d+,\d+\)/g; // match all of do(), don't(), mul(num,num) Thanks Ben 😆
+  const benWinchesterRe = /don't\(\)|do\(\)|mul\(\d+,\d+\)/g; // match all of do(), don't(), mul(num,num) Thanks Ben 😆
   const numRe = /\d+,\d+/g; // numbers e.g. 40,50
   let total = 0;
   let isEnabled = true; // initial all is true so calculate till you hit a don't();
-  const matches = text.matchAll(masterRe);
+  const matches = text.matchAll(benWinchesterRe);
   matches?.forEach(match => {
     const instruction = match[0];
     if (instruction == 'do()') {
